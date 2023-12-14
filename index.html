@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cards_container">
+      <figure class="card_front">
+        <img src="images/card-logo.svg" alt="">
+        <figcaption>
+          <div class="number" id="number"><span>0000</span> <span>0000</span> <span>0000</span> <span>0000</span> </div>
+          <div class="name_date"><span class="name" id="name">Jane Appleseed </span><span class="date"> <span id="month">00</span>/<span id="year">00</span></span></div>
+          <div class="date"></div>
+        </figcaption>
+      </figure>
+      <div class="card_back">
+        <span id="cvc_card">000</span>
+      </div>
+    </div>
+  <div class="form_container" id="form_container">
+      <div class="cards_info_container">
+          <div class="card_name">
+            <label for="card_name">Cardholder Name</label><br>
+            <input type="text" name="card_name" id="card_name" oninput="card_name_change()" class="card_input input" placeholder="e.g. Jane Appleseed" maxlength="30" required>
+            <div class="error" id="name_error" style="display: none;">can't be blank!</div>
+          </div>
+          <div class="card_number">
+            <label for="card_number">Card Number</label><br>
+            <input type="text" name="card_number" oninput="number_change()" id="card_number" class="card_input input" placeholder="e.g. 1234 5678 9123 0000" maxlength="19"required>
+            <div class="error" id="number_error" style="display: none;">can't be blank!</div>
+          </div>
+        <div class="date_container">
+            <div class="date_info_p1">
+              <label for="exp_date">Exp. Date (MM/YY)</label><br>
+              <input type="text" name="exp_date" class="input" oninput="date_change()" id="mm" cla placeholder="MM" maxlength="2" required>
+              <input type="text" name="exp_date" class="input" oninput="date_change()" id="yy" placeholder="YY" maxlength="2" required>
+              <div class="error" id="date_error" style="display: none;">can't be blank!</div> 
+            </div>
+            <div class="date_info_p2">
+              <label for="cvc">cvc</label><br>
+              <input type="text" oninput="cvc_change()" name="cvc" class="input" id="cvc" placeholder="e.g. 123" maxlength="3" required>
+              <div class="error" id="cvc_error" style="display: none;">can't be blank!</div>
+            </div>
+        </div>
+          <div class="submit">
+            <button class="confirm" id="confirm" onclick="continue_button()">Confirm</button>
+          </div>
+      </div>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/nerovanity">imad ha</a>.
+      </div>
+    </div>
+      <!-- Completed state start -->
+      <div class="completed" id="completed">
+        <div class="completed_msg_container">
+          <svg width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="url(#a)"/><path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3"/><defs><linearGradient id="a" x1="-23.014" y1="11.507" x2="0" y2="91.507" gradientUnits="userSpaceOnUse"><stop stop-color="#6348FE"/><stop offset="1" stop-color="#610595"/></linearGradient></defs></svg>
+          <div class="thank">Thank you!</div>
+          <div class="add">We've added your card details</div>
+          <button class="Continue" onclick="location.reload();">Continue</button>
+        </div>
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="https://github.com/nerovanity">imad ha</a>.
+        </div>
+      </div>
+    </div>  
+    
+  <script src="index.js"></script>
+</body>
+</html>

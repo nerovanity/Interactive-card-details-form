@@ -1,0 +1,398 @@
+    $clr-primary: Linear-gradient(#6448fe,#600594);
+    $clr-errors: #ff5252;
+    $clr-white: #fff;
+    $clr-light: #dedddf;
+    $clr-dark: #8e8593;
+    $clr-purple: #21092f;
+    $ff-primary: "Space Grotesk",sans-serif;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    outline: none;
+    // overflow: ;
+}
+@font-face {
+    font-family: "Space Grotesk";
+    src: url(fonts/SpaceGrotesk-VariableFont_wght.ttf);
+    src: url(fonts/static/SpaceGrotesk-Bold.ttf);
+    src: url(fonts/static/SpaceGrotesk-Light.ttf);
+    src: url(fonts/static/SpaceGrotesk-Medium.ttf);
+    src: url(fonts/static/SpaceGrotesk-Regular.ttf);
+    src: url(fonts/static/SpaceGrotesk-SemiBold.ttf);
+}
+body{
+    font-family: $ff-primary;
+}
+
+.cards_container{
+    width: 20%;
+    height: 100vh;
+    background-image: url(images/bg-main-desktop.png);
+    background-size: cover;
+}
+.container{
+    display: flex;
+}
+.card_back{
+    position: absolute;
+}
+.form_container{
+    width: 80%;
+    height: 100vh;
+    input{
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+    label{
+        text-transform: uppercase;
+        font-size: .65rem;
+        color: $clr-dark;
+    }
+    .cards_info_container{
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-10%,-50%);
+        width: 50%;
+        
+        input{
+            width: 22rem;
+            border-radius: 10px;
+            border: 1.5px solid $clr-dark;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+        input::active{
+            border: 1.5px solid $clr-primary;
+        }
+    }
+    .date_container{
+        display: flex;
+        input{
+            width: 3rem;
+            border: 1.5px solid $clr-dark;
+            font-size: 1rem;
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            margin-right: 1rem;
+        }
+        input::active{
+            border: 1.5px solid $clr-primary;
+        }
+        .date_info_p2{
+            margin-left: 2.5rem;
+            #cvc{
+                width: 6rem;
+                border: 1.5px solid $clr-dark;
+                font-size: 1rem;
+                border-radius: 10px;
+                padding: 0.5rem 1rem;
+            }
+        } 
+    }
+    .submit{
+        button{
+            background-color: $clr-purple;
+            width: 24rem;
+            border-radius: 10px;
+            height: 5vh;
+            color: white;
+            font-family: $ff-primary;
+            font-size: 1rem;
+            border: 1.5px solid $clr-purple;
+        }
+        button:hover{
+            color: $clr-purple;
+            background-color: white;
+            
+        }
+    } 
+}
+.card_front{
+    position: absolute;
+    background-image: url(images/bg-card-front.png);
+    background-size: cover;
+    width: 18rem;
+    height: 10rem;
+    display: flex;
+    border-radius: 10px;
+    left: 10%;
+    top: 20%;
+    img{
+        width: 4rem;
+        height: 2rem;
+        margin-left: .4rem;
+        margin-top: .4rem;
+    }
+    figcaption{
+        position: relative;
+        top: 50%;
+        right: 19%;
+        width: 16rem;
+        color: white;
+    }
+    .number{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .name_date{
+        margin-top: 1.8rem;
+        width: 17rem;
+        font-size: .65rem;
+        .date{
+            float: right;
+        }
+    }
+}
+.card_back{
+    position: absolute;
+    background-image: url(images/bg-card-back.png);
+    background-size: cover;
+    width: 18rem;
+    height: 10rem;
+    display: flex;
+    border-radius: 10px;
+    left: 14%;
+    top: 50%;
+    span{
+        position: relative;
+        top: 42%;
+        color: white;
+        left: 78%;
+    }
+}
+.completed{
+    width: 80%;
+    height: 97vh;
+    display: none;
+    .completed_msg_container{
+        position: relative;
+        left: 40%;
+        top: 50%;
+        transform: translate(-10%,-50%);
+        width: 60%;
+        text-align: center;
+        div{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .thank{
+            font-size: 2rem;
+        }
+        .add{
+            color: $clr-dark;
+        }
+        button{
+            background-color: $clr-purple;
+            width: 24rem;
+            border-radius: 10px;
+            height: 5vh;
+            color: white;
+            font-family: $ff-primary;
+            font-size: 1rem;
+            border: 1.5px solid $clr-purple;
+            margin-top: 1rem;
+        }
+        button:hover{
+            color: $clr-purple;
+            background-color: white;
+        }
+    }
+}
+#date_error{
+    margin-bottom: .5rem;
+}
+.attribution{
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+}
+.error{
+    color: red;
+    font-size: .65rem;
+    margin-top: -.3rem;
+    margin-left: .6rem;
+}
+@media only screen and (max-width: 450px){
+    .cards_container{
+        width: 100%;
+        height: 20vh;
+        background-image: url(images/bg-main-desktop.png);
+    }
+    .container{
+        display: block;
+    }
+    .card_back{
+        position: absolute;
+    }
+    .form_container{
+        width: 100%;
+        height: 80vh;
+        input{
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+        }
+        label{
+            text-transform: uppercase;
+            font-size: .65rem;
+            color: $clr-dark;
+        }
+        .cards_info_container{
+            position: relative;
+            left: 40%;
+            top: 45%;
+            transform: translate(-40%,-50%);
+            width: 80%;
+            input{
+                width: 17rem;
+                border-radius: 10px;
+                border: 1.5px solid $clr-dark;
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+            input::active{
+                border: 1.5px solid $clr-primary;
+            }
+        }
+        .date_container{
+            display: flex;
+            input{
+                width: 2rem;
+                border: 1.5px solid $clr-dark;
+                font-size: 1rem;
+                border-radius: 10px;
+                padding: 0.5rem 1rem;
+                margin-right: .5rem;
+            }
+            input::active{
+                border: 1.5px solid $clr-primary;
+            }
+            .date_info_p2{
+                margin-left: 1.5rem;
+                #cvc{
+                    width: 5rem;
+                    border: 1.5px solid $clr-dark;
+                    font-size: 1rem;
+                    border-radius: 10px;
+                    padding: 0.5rem 1rem;
+                }
+            } 
+        }
+        .submit{
+            button{
+                background-color: $clr-purple;
+                width: 19rem;
+                border-radius: 10px;
+                height: 5vh;
+                color: white;
+                font-family: $ff-primary;
+                font-size: 1rem;
+                border: 1.5px solid $clr-purple;
+            }
+            button:hover{
+                color: $clr-purple;
+                background-color: white;
+                
+            }
+        } 
+    }
+    .card_front{
+        position: absolute;
+        background-image: url(images/bg-card-front.png);
+        background-size: cover;
+        width: 12rem;
+        height: 7rem;
+        display: flex;
+        border-radius: 10px;
+        left: 4%;
+        top: 10%;
+        z-index: 9;
+        img{
+            width: 3rem;
+            height: 1.5rem;
+            margin-left: .4rem;
+            margin-top: .4rem;
+        }
+        figcaption{
+            position: relative;
+            top: 50%;
+            right: 23%;
+            width: 12rem;
+            color: white;
+        }
+        .number{
+            font-size: .85rem;
+            text-align: center;
+        }
+        .name_date{
+            margin-top: 1rem;
+            width: 11rem;
+            font-size: .65rem;
+            .date{
+                float: right;
+            }
+        }
+    }
+    .card_back{
+        position: absolute;
+        background-image: url(images/bg-card-back.png);
+        background-size: cover;
+        width: 12rem;
+        height: 7rem;
+        display: flex;
+        border-radius: 10px;
+        left: 14%;
+        top: 1%;
+        span{
+            position: relative;
+            top: 43%;
+            color: white;
+            left: 82%;
+            font-size: .65rem;
+        }
+    }
+    .attribution{
+        position: absolute;
+        bottom: 1%;
+        width: 50%;
+        left: 25%;
+    }
+    .completed{
+        width: 100%;
+        height: 80vh;
+        display: none;
+        .completed_msg_container{
+            position: relative;
+            left: 10%;
+            top: 40%;
+            transform: translate(-10%,-50%);
+            width: 100%;
+            text-align: center;
+            div{
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+            .thank{
+                font-size: 2rem;
+            }
+            .add{
+                color: $clr-dark;
+            }
+            button{
+                background-color: $clr-purple;
+                width: 16rem;
+                border-radius: 10px;
+                height: 5vh;
+                color: white;
+                font-family: $ff-primary;
+                font-size: 1rem;
+                border: 1.5px solid $clr-purple;
+            }
+            button:active{
+                color: $clr-purple;
+                background-color: white;
+            }
+        }
+    }
+}
